@@ -8,8 +8,7 @@ export type VisualType =
   | "ai-shift"
   | "agent-formula"
   | "concept-map"
-  | "api-flow"
-  | "trend-rail"
+  | "ai-evolution"
   | "chat-agent"
   | "workflow-stepper"
   | "stage-gates"
@@ -56,4 +55,13 @@ export interface SourceItem {
   type: string;
   slideIds: string[];
   note: string;
+  entries?: Array<{
+    id: string;
+    title: string;
+    publisher: string;
+    publishedAt: string;
+    sourceType: string;
+    supportedFacts: string[];
+    url: string;
+  }>;
 }

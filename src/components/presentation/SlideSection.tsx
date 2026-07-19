@@ -21,7 +21,7 @@ export function SlideSection({ slide, current, onNavigate, onSource }: { slide: 
           {!isHero && !isClosing && <AnimatedBlueLine />}
           {(isHero || isClosing) && <p className="slide-intro"><ScrollRevealText text={slide.body} /></p>}
         </div>
-        <div className="slide-visual"><SlideVisual slide={slide} onNavigate={onNavigate} /></div>
+        <div className="slide-visual"><SlideVisual slide={slide} onNavigate={onNavigate} onSource={onSource} /></div>
         {!isHero && !isClosing && <KeyMessage slide={slide} />}
         {isClosing && <div className="thank-you">THANK YOU</div>}
         <SlideFooter slide={slide} onSource={onSource} />

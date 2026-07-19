@@ -1,6 +1,6 @@
 import { BookOpenText, Expand, Grid3X3, Home, Minimize, X } from "lucide-react";
 import { brand, chapterMeta } from "../../config/brand";
-import { sources } from "../../content/session";
+import { slides as deckSlides, sources } from "../../content/session";
 import type { SlideData, SourceItem } from "../../types/presentation";
 
 interface NavigationProps {
@@ -41,7 +41,7 @@ export function SlideFooter({ slide, onSource }: { slide: SlideData; onSource: (
     <footer className="slide-footer">
       <button type="button" disabled={!source} onClick={() => source && onSource(source)} title={source ? "查看来源说明" : slide.sourceNote}>{slide.sourceNote}</button>
       <span>{slide.chapterLabel}</span>
-      <b>{String(slide.pageNumber).padStart(2, "0")} / 19</b>
+      <b>{String(slide.pageNumber).padStart(2, "0")} / {deckSlides.length}</b>
     </footer>
   );
 }
@@ -49,7 +49,7 @@ export function SlideFooter({ slide, onSource }: { slide: SlideData; onSource: (
 export function ProgressRail({ slides, currentIndex, onNavigate }: { slides: SlideData[]; currentIndex: number; onNavigate: (id: string) => void }) {
   return (
     <aside className="progress-rail" aria-label="页面进度">
-      <div className="progress-count"><strong>{String(currentIndex + 1).padStart(2, "0")}</strong><span>/ 19</span></div>
+      <div className="progress-count"><strong>{String(currentIndex + 1).padStart(2, "0")}</strong><span>/ {slides.length}</span></div>
       <div className="progress-dots">
         {slides.map((slide, index) => (
           <button
@@ -86,6 +86,7 @@ export function SourceDrawer({ source, onClose }: { source: SourceItem; onClose:
     <aside className="source-drawer" role="dialog" aria-modal="true" aria-label="来源说明">
       <header><div><small>SOURCE NOTE</small><strong>{source.title}</strong></div><button type="button" onClick={onClose} aria-label="关闭来源说明"><X /></button></header>
       <dl><div><dt>类型</dt><dd>{source.type}</dd></div><div><dt>支持页面</dt><dd>{source.slideIds.join(" · ")}</dd></div><div><dt>说明</dt><dd>{source.note}</dd></div></dl>
+      {source.entries && <div className="source-entry-list">{source.entries.map((entry) => <article key={entry.id}><div><span>{entry.publisher} · {entry.publishedAt}</span><b>{entry.title}</b></div><p>{entry.supportedFacts.join("；")}</p><a href={entry.url} target="_blank" rel="noreferrer">打开官方来源 ↗</a></article>)}</div>}
     </aside>
   );
 }

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { getSlideIndexFromHash, slides } from "../../content/session";
+import { getSlideIndexFromHash, normalizeSlideId, slides } from "../../content/session";
 import type { SourceItem } from "../../types/presentation";
 import { OverviewGrid } from "./OverviewGrid";
 import { ProgressRail, SourceDrawer, SpeakerNotesPanel, TopNavigation } from "./Chrome";
@@ -14,9 +14,10 @@ export function PresentationShell() {
   const keyLock = useRef(false);
 
   const navigate = useCallback((id: string, behavior: ScrollBehavior = "smooth") => {
-    const target = document.getElementById(id);
+    const normalizedId = normalizeSlideId(id);
+    const target = document.getElementById(normalizedId);
     if (!target) return;
-    const index = slides.findIndex((slide) => slide.id === id);
+    const index = slides.findIndex((slide) => slide.id === normalizedId);
     if (index >= 0) setCurrentIndex(index);
     setOverview(false);
     target.scrollIntoView({ behavior, block: "start" });
@@ -42,6 +43,18 @@ export function PresentationShell() {
   useEffect(() => {
     const initial = slides[getSlideIndexFromHash()];
     requestAnimationFrame(() => navigate(initial.id, "auto"));
+  }, [navigate]);
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const rawId = window.location.hash.replace(/^#/, "");
+      const normalizedId = normalizeSlideId(rawId);
+      if (!slides.some((slide) => slide.id === normalizedId)) return;
+      if (rawId !== normalizedId) window.history.replaceState(null, "", `#${normalizedId}`);
+      navigate(normalizedId, "auto");
+    };
+    window.addEventListener("hashchange", onHashChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
   }, [navigate]);
 
   useEffect(() => {

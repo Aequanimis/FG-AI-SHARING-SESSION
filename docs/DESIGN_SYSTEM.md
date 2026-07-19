@@ -35,4 +35,4 @@
 
 ## 组件原则
 
-PresentationShell、19 页数据、Hash、键盘、Overview、Speaker Notes、Fullscreen 与 Source Drawer 保持独立；Prisma 视觉层集中在 `src/prisma.css`，媒体封装在 `PrismaMedia.tsx`，标题动效集中在 `Motion.tsx`。
+PresentationShell、18 页数据、Hash、键盘、Overview、Speaker Notes、Fullscreen 与 Source Drawer 保持独立；旧 `#api-key` 与 `#agent-trends` Hash 兼容映射至 `#ai-evolution`。Prisma 视觉层集中在 `src/prisma.css`，媒体封装在 `PrismaMedia.tsx`，标题动效集中在 `Motion.tsx`。

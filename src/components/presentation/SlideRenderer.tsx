@@ -1,7 +1,8 @@
 import { ArrowRight, CheckCircle2, UserRound } from "lucide-react";
 import { chapterMeta } from "../../config/brand";
-import type { SlideData } from "../../types/presentation";
-import { AgentFormula, ApiFlowDiagram, ConceptMap, HumanAgentNetwork, ShiftRail, TrendRail } from "../diagrams/Fundamentals";
+import type { SlideData, SourceItem } from "../../types/presentation";
+import { AgentFormula, ConceptMap, HumanAgentNetwork, ShiftRail } from "../diagrams/Fundamentals";
+import { AiEvolutionTimeline } from "../diagrams/AiEvolutionTimeline";
 import { ChatAgentComparison, ProblemToWorkflow, StageGateTimeline, ThinkingFramework, WorkflowStepper } from "../diagrams/Method";
 import { ABCModeSelector, BeforeAfterComparison, ClosingRoles, DemoWorkflow, MetricGroup, ProjectEvolutionTimeline, SkillArchitecture } from "../diagrams/SkillCase";
 
@@ -11,15 +12,14 @@ export function AgendaVisual({ onNavigate }: { onNavigate: (id: string) => void 
   return <div className="agenda-list">{items.map((item, index) => <button type="button" onClick={() => onNavigate(item.firstSlide)} key={item.label}><span>0{index + 1}</span><div><strong>{item.label}</strong><p>{descriptions[index]}</p></div><ArrowRight aria-hidden="true" /></button>)}</div>;
 }
 
-export function SlideVisual({ slide, onNavigate }: { slide: SlideData; onNavigate: (id: string) => void }) {
+export function SlideVisual({ slide, onNavigate, onSource }: { slide: SlideData; onNavigate: (id: string) => void; onSource: (source: SourceItem) => void }) {
   switch (slide.visualType) {
     case "hero": return <HumanAgentNetwork onStart={() => onNavigate("agenda")} />;
     case "agenda": return <AgendaVisual onNavigate={onNavigate} />;
     case "ai-shift": return <ShiftRail />;
     case "agent-formula": return <AgentFormula />;
     case "concept-map": return <ConceptMap />;
-    case "api-flow": return <ApiFlowDiagram />;
-    case "trend-rail": return <TrendRail />;
+    case "ai-evolution": return <AiEvolutionTimeline onSource={onSource} />;
     case "chat-agent": return <ChatAgentComparison />;
     case "workflow-stepper": return <WorkflowStepper />;
     case "stage-gates": return <StageGateTimeline />;
