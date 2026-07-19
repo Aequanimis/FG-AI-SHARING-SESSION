@@ -1,24 +1,24 @@
-# 18页内容地图
+# 16页内容地图
 
-| 页 | ID | 章节 | 讲述目标 | 时间 | 核心组件 | 待替换素材 |
-|---:|---|---|---|---:|---|---|
-| 1 | hero | 开场 | 建立“AI不只是聊天”的总命题 | 1:00 | HumanAgentNetwork | 无 |
-| 2 | agenda | 开场 | 说明三章路线并支持章节跳转 | 1:00 | AgendaVisual | 无 |
-| 3 | ai-shift | AI基础 | 解释AI从生成到持续执行 | 1:20 | ShiftRail | 无 |
-| 4 | model-chat-agent | AI基础 | 区分Model、Chat与Agent | 1:30 | AgentFormula | 无 |
-| 5 | concept-map | AI基础 | 用互动地图解释八个概念 | 1:40 | ConceptMap | 无 |
-| 6 | ai-evolution | AI基础 | 从对话入口讲到Agent时代与Human Steering | 2:45 | AiEvolutionTimeline | 无 |
-| 7 | chat-vs-agent | 协作方法 | 说明Chat与Agent的刻意分工 | 1:35 | ChatAgentComparison | 无 |
-| 8 | collaboration-sop | 协作方法 | 讲清六步协作SOP | 1:50 | WorkflowStepper | 无 |
-| 9 | stage-gates | 协作方法 | 说明阶段门与独立证据 | 1:50 | StageGateTimeline | 无 |
-| 10 | thinking-frameworks | 协作方法 | 将项目管理思维迁移到AI协作 | 1:35 | ThinkingFramework | 无 |
-| 11 | skill-problem | Skill案例 | 说明Skill解决的真实问题 | 1:35 | ProblemToWorkflow | 无 |
-| 12 | project-evolution | Skill案例 | 复盘五次认知升级 | 1:35 | ProjectEvolutionTimeline | 无 |
-| 13 | template-modes | Skill案例 | 阐明固定模板与A/B/C正文模式 | 1:40 | ABCModeSelector | 无 |
-| 14 | image-native-pivot | Skill案例 | 说明组件化到混合路线的调整 | 1:50 | BeforeAfterComparison | Before/After图 |
-| 15 | ici-case | Skill案例 | 准确陈述ICI案例结果与未完成项 | 1:50 | MetricGroup / NarrativeFlow | ICI大纲、QA图 |
-| 16 | skill-architecture | Skill案例 | 解释Skill的目录与渐进披露 | 1:35 | SkillArchitecture | 无 |
-| 17 | how-to-use | Skill案例 | 演示普通同事三步使用 | 1:40 | DemoWorkflow | Skill运行图 |
-| 18 | closing | 结尾 | 收束人、Chat、Agent、Skill四角色 | 0:50 | ClosingRoles | 无 |
+| 页 | ID | 章节 | 讲述目标 | 时间 | 核心组件 |
+|---:|---|---|---|---:|---|
+| 01 | hero | 开场 | 建立“AI不只是聊天”的总命题 | 1:00 | HumanAgentNetwork |
+| 02 | agenda | 开场 | 三章路线与章节跳转 | 1:00 | AgendaVisual |
+| 03 | ai-shift | AI基础 | 从生成走向持续执行 | 1:20 | ShiftRail |
+| 04 | model-chat-agent | AI基础 | 区分Model、Chat与Agent | 1:30 | AgentFormula |
+| 05 | concept-map | AI基础 | 解释八个Agent工作系统概念 | 1:40 | ConceptMap |
+| 06 | ai-evolution | AI基础 | 从对话入口讲到Human Steering | 2:45 | AiEvolutionTimeline |
+| 07 | human-chat-agent-workflow | 协作方法 | 六步协作链、两个人工Gate与反馈回路 | 2:30 | HumanChatAgentWorkflow |
+| 08 | method-foundations | 协作方法 | 四项方法基础与官方证据 | 2:00 | CollaborationFoundations |
+| 09 | skill-problem | Skill案例 | 说明Skill解决的真实问题 | 1:35 | ProblemToWorkflow |
+| 10 | project-evolution | Skill案例 | 复盘五次认知升级 | 1:35 | ProjectEvolutionTimeline |
+| 11 | template-modes | Skill案例 | 固定模板与A/B/C正文模式 | 1:40 | ABCModeSelector |
+| 12 | image-native-pivot | Skill案例 | 组件化到混合路线 | 1:50 | BeforeAfterComparison |
+| 13 | ici-case | Skill案例 | 陈述ICI案例结果与未完成项 | 1:50 | MetricGroup / NarrativeFlow |
+| 14 | skill-architecture | Skill案例 | 解释Skill目录与渐进披露 | 1:35 | SkillArchitecture |
+| 15 | how-to-use | Skill案例 | 演示普通同事三步使用 | 1:40 | DemoWorkflow |
+| 16 | closing | 结尾 | 收束人、Chat、Agent、Skill四角色 | 0:50 | ClosingRoles |
 
-总计约 27 分钟。第05页的知识节点在 `src/content/ai-knowledge-universe.ts` 维护；第06页时间线节点与官方来源在 `src/content/ai-evolution-timeline.ts` 维护；其余标题、正文与讲者备注在 `src/content/session.ts` 维护。
+Agenda 跳转：认识AI → `#ai-shift`；协作方法 → `#human-chat-agent-workflow`；Skill案例 → `#skill-problem`。
+
+内容维护：标题、页序与备注在 `src/content/session.ts`；第06页数据在 `src/content/ai-evolution-timeline.ts`；第07页数据在 `src/content/human-chat-agent-workflow.ts`；第08页原则与来源在 `src/content/collaboration-foundations.ts`。

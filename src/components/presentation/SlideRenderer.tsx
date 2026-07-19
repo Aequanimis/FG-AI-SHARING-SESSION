@@ -3,7 +3,9 @@ import { chapterMeta } from "../../config/brand";
 import type { SlideData, SourceItem } from "../../types/presentation";
 import { AgentFormula, ConceptMap, HumanAgentNetwork, ShiftRail } from "../diagrams/Fundamentals";
 import { AiEvolutionTimeline } from "../diagrams/AiEvolutionTimeline";
-import { ChatAgentComparison, ProblemToWorkflow, StageGateTimeline, ThinkingFramework, WorkflowStepper } from "../diagrams/Method";
+import { ProblemToWorkflow } from "../diagrams/Method";
+import { HumanChatAgentWorkflow } from "../diagrams/HumanChatAgentWorkflow";
+import { CollaborationFoundations } from "../diagrams/CollaborationFoundations";
 import { ABCModeSelector, BeforeAfterComparison, ClosingRoles, DemoWorkflow, MetricGroup, ProjectEvolutionTimeline, SkillArchitecture } from "../diagrams/SkillCase";
 
 export function AgendaVisual({ onNavigate }: { onNavigate: (id: string) => void }) {
@@ -20,10 +22,8 @@ export function SlideVisual({ slide, onNavigate, onSource }: { slide: SlideData;
     case "agent-formula": return <AgentFormula />;
     case "concept-map": return <ConceptMap />;
     case "ai-evolution": return <AiEvolutionTimeline onSource={onSource} />;
-    case "chat-agent": return <ChatAgentComparison />;
-    case "workflow-stepper": return <WorkflowStepper />;
-    case "stage-gates": return <StageGateTimeline />;
-    case "thinking-frameworks": return <ThinkingFramework />;
+    case "human-chat-agent-workflow": return <HumanChatAgentWorkflow />;
+    case "method-foundations": return <CollaborationFoundations onSource={onSource} />;
     case "skill-problem": return <ProblemToWorkflow />;
     case "project-evolution": return <ProjectEvolutionTimeline />;
     case "template-modes": return <ABCModeSelector />;

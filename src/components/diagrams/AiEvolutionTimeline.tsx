@@ -69,11 +69,12 @@ export function AiEvolutionTimeline({ onSource }: { onSource: (source: SourceIte
               onBlur={() => setFocused(null)}
               onClick={(event) => { event.stopPropagation(); select(target); }}
               key={stage.id}
+              data-timeline-stage={stage.id}
             >
               <span className="stage-dot"><i /></span>
               <span className="stage-period">{stage.period}</span>
-              <strong>{stage.capability}</strong>
-              <small>{stage.capabilityZh}</small>
+              <strong>{stage.capabilityZh}</strong>
+              <small>{stage.capability}</small>
               <em>{stage.index}</em>
             </button>
           );
@@ -103,6 +104,7 @@ export function AiEvolutionTimeline({ onSource }: { onSource: (source: SourceIte
                 onBlur={() => setFocused(null)}
                 onClick={(event) => { event.stopPropagation(); select(target); }}
                 key={trend.id}
+                data-agent-trend={trend.id}
               >
                 <span>{trend.label}</span><small>{trend.labelZh}</small><ArrowUpRight aria-hidden="true" />
               </button>
@@ -133,7 +135,7 @@ function TimelineCallout({ detail, locked, onSource }: { detail: TimelineStage |
   const ids = isStage ? detail.events.flatMap((event) => event.sourceIds) : detail.sourceIds;
   const title = isStage ? `${detail.period} · ${detail.capabilityZh}` : `${detail.label} · ${detail.labelZh}`;
   return (
-    <aside className={`timeline-callout ${isStage ? "is-stage" : "is-trend"}`} aria-live="polite">
+    <aside className={`timeline-callout ${isStage ? "is-stage" : "is-trend"}`} aria-live="polite" data-timeline-callout={detail.id}>
       <span>{locked ? "LOCKED DETAIL" : "CAPABILITY SIGNAL"}</span>
       <strong>{title}</strong>
       <p>{isStage ? detail.summary : detail.description}</p>

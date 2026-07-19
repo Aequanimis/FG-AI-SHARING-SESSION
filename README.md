@@ -32,7 +32,9 @@ npm run lint
 
 ## 修改内容与素材
 
-- 18 页文案与讲者备注：`src/content/session.ts`
+- 16 页文案与讲者备注：`src/content/session.ts`
+- 第07页协作链数据：`src/content/human-chat-agent-workflow.ts`
+- 第08页方法来源：`src/content/collaboration-foundations.ts`
 - 品牌变量：`src/config/brand.ts` 与 `src/index.css`
 - 素材路径：`src/config/assets.ts`
 - Prisma 视觉覆盖层：`src/prisma.css`

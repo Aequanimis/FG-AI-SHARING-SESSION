@@ -9,10 +9,8 @@ export type VisualType =
   | "agent-formula"
   | "concept-map"
   | "ai-evolution"
-  | "chat-agent"
-  | "workflow-stepper"
-  | "stage-gates"
-  | "thinking-frameworks"
+  | "human-chat-agent-workflow"
+  | "method-foundations"
   | "skill-problem"
   | "project-evolution"
   | "template-modes"
@@ -62,6 +60,9 @@ export interface SourceItem {
     publishedAt: string;
     sourceType: string;
     supportedFacts: string[];
+    supportedClaim?: string;
+    practicalUse?: string;
+    verifiedAt?: string;
     url: string;
   }>;
 }

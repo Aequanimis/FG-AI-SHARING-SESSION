@@ -35,4 +35,6 @@
 
 ## 组件原则
 
-PresentationShell、18 页数据、Hash、键盘、Overview、Speaker Notes、Fullscreen 与 Source Drawer 保持独立；旧 `#api-key` 与 `#agent-trends` Hash 兼容映射至 `#ai-evolution`。Prisma 视觉层集中在 `src/prisma.css`，媒体封装在 `PrismaMedia.tsx`，标题动效集中在 `Motion.tsx`。
+PresentationShell、16页数据、Hash、键盘、Overview、Speaker Notes、Fullscreen 与 Source Drawer 保持独立；旧 `#api-key` 与 `#agent-trends` 映射至 `#ai-evolution`，旧 `#chat-vs-agent`、`#collaboration-sop`、`#stage-gate(s)` 映射至 `#human-chat-agent-workflow`，旧 `#thinking-framework(s)` 映射至 `#method-foundations`。Prisma视觉层集中在 `src/prisma.css`，媒体封装在 `PrismaMedia.tsx`，标题动效集中在 `Motion.tsx`。
+
+桌面适配分为Wide、Standard、Compact三档，使用`clamp()`、`minmax()`与高度媒体查询重排，不允许通过全页`scale()`或`zoom`换取适配。

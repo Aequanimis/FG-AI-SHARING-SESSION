@@ -86,7 +86,7 @@ export function SourceDrawer({ source, onClose }: { source: SourceItem; onClose:
     <aside className="source-drawer" role="dialog" aria-modal="true" aria-label="来源说明">
       <header><div><small>SOURCE NOTE</small><strong>{source.title}</strong></div><button type="button" onClick={onClose} aria-label="关闭来源说明"><X /></button></header>
       <dl><div><dt>类型</dt><dd>{source.type}</dd></div><div><dt>支持页面</dt><dd>{source.slideIds.join(" · ")}</dd></div><div><dt>说明</dt><dd>{source.note}</dd></div></dl>
-      {source.entries && <div className="source-entry-list">{source.entries.map((entry) => <article key={entry.id}><div><span>{entry.publisher} · {entry.publishedAt}</span><b>{entry.title}</b></div><p>{entry.supportedFacts.join("；")}</p><a href={entry.url} target="_blank" rel="noreferrer">打开官方来源 ↗</a></article>)}</div>}
+      {source.entries && <div className="source-entry-list">{source.entries.map((entry) => <article key={entry.id}><div><span>{entry.publisher} · {entry.publishedAt}</span><b>{entry.title}</b></div><p>{entry.supportedClaim ?? entry.supportedFacts.join("；")}</p>{entry.practicalUse && <p><strong>本页转译：</strong>{entry.practicalUse}</p>}{entry.verifiedAt && <small>核验日期 · {entry.verifiedAt}</small>}<a href={entry.url} target="_blank" rel="noreferrer">打开官方来源 ↗</a></article>)}</div>}
     </aside>
   );
 }
