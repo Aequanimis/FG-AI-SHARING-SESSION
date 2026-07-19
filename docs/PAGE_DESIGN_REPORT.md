@@ -32,9 +32,10 @@
 ## 06｜AI Evolution
 
 - 目标：在一页中读懂2022—2026的六次能力迁移。
-- 设计：三节点在线上、三节点在线下；默认只显示年份、中文标题、英文关键词。右侧Agent Era缩为径向星簇。
-- 交互：Hover/Focus显示产品与解释；点击锁定；来源按节点过滤。
-- 桌面修复：1920档关键字号为15–24px，1366紧凑档仍保持年份13px、中文17px、英文12px、说明14px以上；没有使用scale/zoom压缩页面。
+- 结构：横线、六个圆点与六组内容统一放入同一个六列Grid坐标系；横线和圆点共享`--timeline-axis-y`，节点内容只在轴线上下分区，不再参与圆点定位。
+- 设计：01—03内容位于轴线上方，04—06位于下方；年份、中文标题、英文关键词和编号均归属各自节点。右侧Agent Era保持独立终点模块，由2026节点通过专属连接段进入，不挤占六节点坐标。
+- 交互：Hover/Focus显示产品与解释；点击锁定；来源按节点过滤。开发环境可使用`?debugTimeline`查看每个圆点的实际坐标与轴线误差。
+- 跨尺寸验收：1920×1080、1600×900、1440×900、1366×768、1280×720的横轴误差均为0px；390×844竖轴调试误差为0.8px，无横向溢出，节点顺序严格递增。没有使用scale/zoom压缩页面。
 
 ## 07｜Human–Chat–Agent Workflow
 
@@ -44,44 +45,47 @@
 
 ## 08｜Method Foundations
 
-- 目标：说明方法并非凭空总结，也不是任何机构联合发布的官方框架。
-- 设计：中心“可控人机协作”核心、四个非对称原则支柱和官方证据环；避免四张普通卡或八节点圆环。
-- 交互：按原则查看来源含义、业务转译和流程映射；来源抽屉显示发布方、日期、支持观点、实际应用、链接与核验日。
+- 目标：说明Human—Chat—Agent方法是对成熟软件工程、系统工程与架构设计思想的业务化转译，而不是AI平台给出的Agent使用规则。
+- 来源：以NASA Systems Engineering Handbook、Agile Manifesto原则、Microsoft Azure Architecture Center与Google Engineering Practices为一手依据，分别支撑复杂度分解、关注点分离、反馈迭代和交付前验证。
+- 设计：奶油色中心圆“ENGINEER THE PROCESS”连接四个非对称深灰节点，箭头按左上→右上→右下→左下→左上的方向形成反馈闭环；FullGoal蓝黄只用于选中态、流程提示和来源强调。
+- 交互：Hover/Focus即时预览，点击锁定，Tab与方向键移动，Enter/Space确认，Esc退出；详情采用“工程原义 / 协作转译”双栏，并补充类比、流程步骤与工程来源。
+- 口径：Source Drawer明确标注各机构分别支持的工程原则、核验日期和官方链接，同时声明本页不是NASA、Microsoft、Agile Manifesto与Google联合发布或共同背书的框架。
+- 响应式：桌面保持四角闭环与中心圆，移动端改为中心圆、四原则纵向阅读和底部详情面板；各验收尺寸无横向溢出。
 
-## 09｜Skill Problem
+## 09｜Start with Materials
 
-- 目标：从五个真实问题引出FullGoal PPT Master。
-- 设计：问题列与八步解决链对照，蓝黄只标结构与关键节点。
+- 目标：从ICI公开材料、分析问题和“只生成大纲”的阶段边界启动任务。
+- 设计：AI Workspace左侧承载任务输入，右侧Artifact Canvas用文件轮廓、扫描线和页码粒子表现第四章读取；支持加载预设、发送分析和Reset Demo。
 
-## 10｜Project Evolution
+## 10｜Outline Before Slides
 
-- 目标：复盘五次认知升级。
-- 设计：阶段时间线从模仿模板走向研究叙事、批准门与混合渲染。
+- 目标：把正确但平铺的报告目录改造成研究问题链，并设置显式大纲批准门。
+- 设计：左侧延续材料上下文，右侧Outline Board演示三处标题Diff、关系线重组与10页确认版；未批准不进入视觉探索。
 
-## 11｜Template Modes
+## 11｜Three Visual Routes
 
-- 目标：解释固定品牌骨架与A/B/C正文复杂度。
-- 设计：固定Shell包围可变正文；Tab仅切换内容区。
+- 目标：在固定品牌骨架中比较A经典研究型、B机制解释型和C综合重点型。
+- 设计：真实A/B/C代表页构成有纵深的Visual Route Stage；Hover回正上浮，点击锁定，现场默认选择B。
 
-## 12｜Image-native Pivot
+## 12｜Generate the Selected Route
 
-- 目标：比较组件化与Image-native并说明混合路线。
-- 设计：Before/After滑杆；AI负责视觉，程序负责文字、数字、图表和来源。
+- 目标：区分Image-native视觉生成、精确内容回填和文件输出。
+- 设计：B方案放大为主Artifact并保留后续页面轮廓；PNG标记可预览，SVG明确为流程演示，PPTX明确需要构建。
 
-## 13｜ICI Case
+## 13｜Behind the Conversation
 
-- 目标：准确区分已完成与未完成工作。
-- 设计：关键数字、研究叙事和状态列；不把抽象占位图冒充真实成果。
+- 目标：展示真实Skill背后的有状态生产流水线，而不是虚构的长Prompt。
+- 设计：前台工作台向两侧打开，露出研究决策层与视觉交付层；Outline、Visual Route与Evidence三道门禁通过Source & Data Integrity Line贯通。
 
-## 14｜Skill Architecture
+## 14｜Real Material Validation
 
-- 目标：说明Skill是规则、参考、数据、脚本与QA组成的工作系统。
-- 设计：文件树、渐进披露层与Agent控制台。
+- 目标：使用ICI第四章说明当前真实进度，并把未完成状态作为可信度的一部分。
+- 设计：Evidence Wall连接146页材料、第四章、26项数字、13页叙事和A/B/C代表视觉；真实B方案与`ici-outline`、`qa-result`占位并列。
 
-## 15｜How to Use
+## 15｜Engineering Controls
 
-- 目标：让普通同事理解三步使用流程。
-- 设计：输入目标、批准方案、检查成果；批准条强调人在环中。
+- 目标：解释为什么稳定复用需要Skill承载隐私、模板、精确内容、批准和QA控制。
+- 设计：Control Room以Skill Core为中心，五道不同半径的Safety Rails展示`RISK → CONTROL`；Hover显示具体风险与控制动作。
 
 ## 16｜Closing
 

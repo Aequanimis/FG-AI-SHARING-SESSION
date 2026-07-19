@@ -3,10 +3,10 @@ import { chapterMeta } from "../../config/brand";
 import type { SlideData, SourceItem } from "../../types/presentation";
 import { AgentFormula, ConceptMap, HumanAgentNetwork, ShiftRail } from "../diagrams/Fundamentals";
 import { AiEvolutionTimeline } from "../diagrams/AiEvolutionTimeline";
-import { ProblemToWorkflow } from "../diagrams/Method";
 import { HumanChatAgentWorkflow } from "../diagrams/HumanChatAgentWorkflow";
-import { CollaborationFoundations } from "../diagrams/CollaborationFoundations";
-import { ABCModeSelector, BeforeAfterComparison, ClosingRoles, DemoWorkflow, MetricGroup, ProjectEvolutionTimeline, SkillArchitecture } from "../diagrams/SkillCase";
+import { EngineeringFoundations } from "../diagrams/EngineeringFoundations";
+import { ClosingRoles } from "../diagrams/SkillCase";
+import { EngineeringControlRoom, IciEvidenceWall, MaterialUploadScene, OutlineApprovalScene, ProductionPipelineBlueprint, SelectedRouteBuild, VisualRouteSelector } from "../diagrams/Part3Workflow";
 
 export function AgendaVisual({ onNavigate }: { onNavigate: (id: string) => void }) {
   const items = [chapterMeta.ai, chapterMeta.method, chapterMeta.skill];
@@ -23,14 +23,14 @@ export function SlideVisual({ slide, onNavigate, onSource }: { slide: SlideData;
     case "concept-map": return <ConceptMap />;
     case "ai-evolution": return <AiEvolutionTimeline onSource={onSource} />;
     case "human-chat-agent-workflow": return <HumanChatAgentWorkflow />;
-    case "method-foundations": return <CollaborationFoundations onSource={onSource} />;
-    case "skill-problem": return <ProblemToWorkflow />;
-    case "project-evolution": return <ProjectEvolutionTimeline />;
-    case "template-modes": return <ABCModeSelector />;
-    case "before-after": return <BeforeAfterComparison />;
-    case "ici-case": return <MetricGroup />;
-    case "skill-architecture": return <SkillArchitecture />;
-    case "demo-workflow": return <DemoWorkflow />;
+    case "method-foundations": return <EngineeringFoundations onSource={onSource} />;
+    case "start-with-materials": return <MaterialUploadScene />;
+    case "outline-before-slides": return <OutlineApprovalScene />;
+    case "three-visual-routes": return <VisualRouteSelector />;
+    case "generate-selected-route": return <SelectedRouteBuild />;
+    case "behind-the-conversation": return <ProductionPipelineBlueprint />;
+    case "real-material-validation": return <IciEvidenceWall />;
+    case "engineering-controls": return <EngineeringControlRoom />;
     case "closing": return <ClosingRoles />;
   }
 }

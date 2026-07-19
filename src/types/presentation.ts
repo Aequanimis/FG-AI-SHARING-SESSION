@@ -11,13 +11,13 @@ export type VisualType =
   | "ai-evolution"
   | "human-chat-agent-workflow"
   | "method-foundations"
-  | "skill-problem"
-  | "project-evolution"
-  | "template-modes"
-  | "before-after"
-  | "ici-case"
-  | "skill-architecture"
-  | "demo-workflow"
+  | "start-with-materials"
+  | "outline-before-slides"
+  | "three-visual-routes"
+  | "generate-selected-route"
+  | "behind-the-conversation"
+  | "real-material-validation"
+  | "engineering-controls"
   | "closing";
 
 export interface SpeakerNotes {
